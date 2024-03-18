@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watercolor Clock</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttonsStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
    </head>
 <body>
     <div id="selection-area"  class="selectionDiv text-label overflow-auto" >  <!-- start lateral bar -->
@@ -13,6 +15,15 @@
             <h3>Watercolor Clock Widget Personalizer</h3><h4>for Notion by <a href="https://martagd.gumroad.com/">MartaGD</a></h5>
         </div><!-- end title area -->
 
+        <div class="section-area"> <!-- start title area -->
+        <div class="btn-group" class="section-area-inside"><!-- start Name -->
+            Dark Mode
+            <label class="switch">
+                <input type="checkbox" checked onchange="toggleMode()">
+                <span class="slider round"></span>
+            </label>Light Mode
+        </div><!-- end Name -->
+    </div><!-- end title area -->
         <div class="section-area"> <!-- start personalization area -->
             <b>1. Select the data to show personalize your clock</b>
             <div class="section-area-inside"> <!-- start Name -->
@@ -45,14 +56,14 @@
         </div>  <!-- end personalization area -->
 
         <div class="section-area"> <!-- start URL area -->
-            <b>2. Copy the generated URL and paste it as an embedded in your Notion page</b>
+            <b>3. Copy the generated URL and paste it as an embedded in your Notion page</b>
             <textarea id="urlArea" name="urlArea" rows="4" cols="50" disabled readonly></textarea>
             <button onclick="copyAreaBtn()">Copy text</button>
         </div> <!-- end URL area -->
 
     </div> <!-- end lateral bar -->
     
-    <div id="preview"><!-- start preview -->
+    <div id="preview" class=""><!-- start preview -->
         <div id="clock" class="clock-area">
             <div id="greeting"></div>
             <div class="clockTime">

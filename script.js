@@ -97,7 +97,10 @@ function getColor(val){
 
 }
 
-
+function toggleMode(){
+    var element = document.getElementById("preview");
+    element.classList.toggle("dark-mode");
+ }
 
 setInterval(getClock, 1000);
 getClock();
