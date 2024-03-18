@@ -14,13 +14,14 @@
         </div><!-- end title area -->
 
         <div class="section-area"> <!-- start personalization area -->
-            <b>3. Copy the generated URL and paste it as an embedded in your Notion page</b>
+            <b>1. Select the data to show personalize your clock</b>
             <div class="section-area-inside"> <!-- start Name -->
-                <label class="">Insert your name:</label>
-                <input type="text" id="labelSelector" name="labelSelector" value="Selected Date: " onchange="selectLabel(this.value)">
+                Insert your name:
+                <input type="text" id="labelSelector" name="labelSelector" value="Cutie" onchange="getlabel(this.value)">
             </div><!-- end Name -->
             <div class="section-area-inside"> <!-- start color -->
-                <select class="form-select" name="notionThemeSelector" id="notionThemeSelector" onchange="selectTheme(this.value)" >
+                Select the color of your clock:
+                <select class="form-select" name="colorSelector" id="colorSelector" onchange="getColor(this.value)" >
                     <option value="blue" selected>Blue</option>
                     <option value="cream">Cream</option>
                     <option value="green">Green</option>
@@ -34,12 +35,17 @@
                 </select>
             </div><!-- end color -->
             <div class="section-area-inside"> <!-- start date format -->
-                <input type="text" id="labelSelector" name="labelSelector" value="Selected Date: " onchange="selectLabel(this.value)">
-            </div><!-- end date format -->
+                Select the date format:
+                <select class="form-select" name="formatSelector" id="formatSelector" onchange="getColor(this.value)" >
+                    <option value="dd/mm/yyyy" selected>dd/mm/yyyy</option>
+                    <option value="dd-mm-yyyy">dd-mm-yyyy</option>
+                    <option value="mm/dd/yyyy">mm/dd/yyyy</option>
+                    <option value="mm-dd-yyyy">mm-dd-yyyy</option>
+                </select></div><!-- end date format -->
         </div>  <!-- end personalization area -->
 
         <div class="section-area"> <!-- start URL area -->
-            <b>3. Copy the generated URL and paste it as an embedded in your Notion page</b>
+            <b>2. Copy the generated URL and paste it as an embedded in your Notion page</b>
             <textarea id="urlArea" name="urlArea" rows="4" cols="50" disabled readonly></textarea>
             <button onclick="copyAreaBtn()">Copy text</button>
         </div> <!-- end URL area -->
@@ -47,13 +53,14 @@
     </div> <!-- end lateral bar -->
     
     <div id="preview"><!-- start preview -->
-        <div class="clock-area">
+        <div id="clock" class="clock-area">
             <div id="greeting"></div>
             <div class="clockTime">
                 <div id="time" class="flip-horizontal-bottom"></div>
             </div>            
             <div id="calendar"></div>
-        </div>
+        </div>  
+
     </div><!-- end preview -->
     
     <script src="script.js"></script>  

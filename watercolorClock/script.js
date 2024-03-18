@@ -1,4 +1,5 @@
 const url = new URL(window.location.href);
+let prueba = "";
 
 function getClock(){  
     const now = new Date();
@@ -8,16 +9,20 @@ function getClock(){
     document.getElementById("time").innerHTML = hours +":"+minutes;
     let color = url.searchParams.get("color");
     setColor(color);
-    let separator = url.searchParams.get("separator");
     let format = url.searchParams.get("format");
-    setDate(now,separator,format);
+    setDate(now,format);
     let name = url.searchParams.get("name");
     setGreeting(name,now.getHours());
     
 }
 
 function setColor(color){
-   // document.getElementById("clock").style.backgroundImage.replace("")
+    let colorString = "url('images/";
+    let format = ".png')";
+    for (let i = 0; i < document.getElementsByClassName("clock-area").length; i++) {
+        document.getElementById("clock").style.backgroundImage = colorString+color+format;
+    }     
+    prueba = document.getElementById("clock").style.backgroundImage;
 }
 
 function setGreeting(name,hours){
@@ -32,17 +37,31 @@ function setGreeting(name,hours){
     }else { //night
         greeting = "Good Night, ";
     }
-    document.getElementById("greeting").innerHTML = greeting + name;
-    //urlWidget.searchParams.set("icon","glyphicon-phone"); 
-   // document.getElementById("urlArea").innerHTML = urlWidget;
+    document.getElementById("greeting").innerHTML = greeting + name+"!";
 }
 
-function setDate(date,separator,format){    
+function setDate(date,format){    
     const now = date;
+    let literalDate = "";
     let day = now.getDate()<=9 ? "0"+now.getDate() : now.getDate();
     let month = now.getMonth()<=9 ? "0"+now.getMonth() : now.getMonth();
     let year = now.getFullYear();
-    document.getElementById("calendar").innerHTML = day+separator+month+separator+year;
+    switch(format){
+        case "dd-mm-yyyy":
+           literalDate = day+"-"+month+"-"+year;
+           break;
+       case "mm/dd/yyyy":
+           literalDate = month+"/"+day+"/"+year;
+           break;
+       case "mm-dd-yyyy":
+           literalDate = month+"-"+day+"-"+year;
+           break;  
+       default: //dd/mm/yyyy
+           literalDate = day+"/"+month+"/"+year;
+           break;
+   }
+
+    document.getElementById("calendar").innerHTML = literalDate;
 }
 
 setInterval(getClock, 1000);
