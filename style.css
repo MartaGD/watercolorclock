@@ -63,6 +63,7 @@ h3{
     float: right;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 .clock-area {
