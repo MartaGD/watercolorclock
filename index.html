@@ -2,9 +2,60 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watercolor Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+    <div id="selection-area"  class="selectionDiv text-label overflow-auto" >  <!-- start lateral bar -->
+        <div class="section-area"> <!-- start title area -->
+            <h3>Watercolor Clock Widget Personalizer</h3><h4>for Notion by <a href="https://martagd.gumroad.com/">MartaGD</a></h5>
+        </div><!-- end title area -->
+
+        <div class="section-area"> <!-- start personalization area -->
+            <b>3. Copy the generated URL and paste it as an embedded in your Notion page</b>
+            <div class="section-area-inside"> <!-- start Name -->
+                <label class="">Insert your name:</label>
+                <input type="text" id="labelSelector" name="labelSelector" value="Selected Date: " onchange="selectLabel(this.value)">
+            </div><!-- end Name -->
+            <div class="section-area-inside"> <!-- start color -->
+                <select class="form-select" name="notionThemeSelector" id="notionThemeSelector" onchange="selectTheme(this.value)" >
+                    <option value="blue" selected>Blue</option>
+                    <option value="cream">Cream</option>
+                    <option value="green">Green</option>
+                    <option value="lightBlue">Light Blue</option>
+                    <option value="limeGreen">Lime Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="pink">Pink</option>
+                    <option value="purple">Purple</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+            </div><!-- end color -->
+            <div class="section-area-inside"> <!-- start date format -->
+                <input type="text" id="labelSelector" name="labelSelector" value="Selected Date: " onchange="selectLabel(this.value)">
+            </div><!-- end date format -->
+        </div>  <!-- end personalization area -->
+
+        <div class="section-area"> <!-- start URL area -->
+            <b>3. Copy the generated URL and paste it as an embedded in your Notion page</b>
+            <textarea id="urlArea" name="urlArea" rows="4" cols="50" disabled readonly></textarea>
+            <button onclick="copyAreaBtn()">Copy text</button>
+        </div> <!-- end URL area -->
+
+    </div> <!-- end lateral bar -->
     
+    <div id="preview"><!-- start preview -->
+        <div class="clock-area">
+            <div id="greeting"></div>
+            <div class="clockTime">
+                <div id="time" class="flip-horizontal-bottom"></div>
+            </div>            
+            <div id="calendar"></div>
+        </div>
+    </div><!-- end preview -->
+    
+    <script src="script.js"></script>  
 </body>
 </html>

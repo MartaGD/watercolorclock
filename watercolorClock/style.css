@@ -1,0 +1,38 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.clock-area {
+    color: #1a1919;
+    text-align: center;
+    background-image: url(images/blue.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    position: absolute;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.clockTime{
+    font-size: xxx-large;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#greeting, #calendar{
+    text-align: center;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
