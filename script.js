@@ -62,7 +62,7 @@ function setGreeting(name,hours){
 function setDate(date,format){
     const now = date;
     let day = now.getDate()<=9 ? "0"+now.getDate() : now.getDate();
-    let month = now.getMonth()<=9 ? "0"+now.getMonth() : now.getMonth();
+    let month = (now.getMonth()+1)<=9 ? "0"+(now.getMonth()+1) : (now.getMonth()+1);
     let year = now.getFullYear();
     let literalDate = "";
     switch(format){
