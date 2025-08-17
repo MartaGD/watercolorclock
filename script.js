@@ -1,5 +1,5 @@
 const urlWidget = new URL(window.location.origin+window.location.pathname+"/watercolorClock/index.html");
-const urlDev = new URL(window.location.origin+window.location.pathname+"/watercolorClock/dev.html");
+const urlDev = new URL(window.location.origin+"/watercolorClock/translations/");
 const urlProd =  new URL("https://raw.githubusercontent.com/MartaGD/watercolorclock/refs/heads/master/watercolorClock/translations/");
 const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -51,7 +51,6 @@ function setGreeting(name,hours,lang) {
     } else {
         xhr.open("GET", urlProd+lang+".json", true);
     } 
-    xhr.open("GET", "/watercolorClock//translations//"+lang+".json", true);
     xhr.onload = function() {
             if (xhr.status === 200) {
                     const profile = JSON.parse(xhr.responseText);
