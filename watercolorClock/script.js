@@ -3,7 +3,7 @@ const urlDev = new URL(window.location.origin+"/watercolorClock/translations/");
 const urlProd =  new URL("https://raw.githubusercontent.com/MartaGD/watercolorclock/refs/heads/master/watercolorClock/translations/");
 let prueba = "";
 
-function getClock(){  
+function getClock(){   
     const now = new Date();
     let hours = now.getHours()<=9 ? "0"+now.getHours() : now.getHours();
     let minutes = now.getMinutes()<=9 ? "0"+now.getMinutes() : now.getMinutes();
