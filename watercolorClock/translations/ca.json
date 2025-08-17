@@ -1,0 +1,10 @@
+{
+    "appTitle": "Watercolor Clock",
+    "greetings":{
+        "morning": "Bon dia, ",
+        "afternoon": "Bon migdia, ",
+        "evening": "Bona tarda, ",
+        "night": "Bona nit, ",
+        "default": "Que tinguis un bon dia, "
+    }
+}

@@ -12,7 +12,7 @@ function getClock(){
     let format = url.searchParams.get("format");
     setDate(now,format);
     let name = url.searchParams.get("name");
-    setGreeting(name,now.getHours());
+    setGreeting(name,now.getHours(),window.navigator.language);
     
 }
 
@@ -25,21 +25,21 @@ function setColor(color){
     prueba = document.getElementById("clock").style.backgroundImage;
 }
 
-function setGreeting(name,hours){
+/*function setGreeting(name,hours){
     let greeting = "Have a nice day, ";
     if(hours>=5&&hours<=11){ //morning
-        greeting = "Good Morning, ";
+        greeting = getJsonProfile("en", morning); //"Good Morning, ";
     }else if(hours>=12&&hours<=14){ //afternoon
         greeting = "Good Afternoon, ";
     }
     else if(hours>=15&&hours<=18){ //evening
         greeting = "Good Evening, ";
     }else { //night
-        greeting = "Good Night, ";
+        greeting = getJsonProfile("en", "night"); 
     }
     document.getElementById("greeting").innerHTML = greeting + name+"!";
 }
-
+*/
 function setDate(date,format){    
     const now = date;
     let literalDate = "";
@@ -63,6 +63,35 @@ function setDate(date,format){
 
     document.getElementById("calendar").innerHTML = literalDate;
 }
+function setGreeting(name,hours,lang) {
+    const xhr = new XMLHttpRequest();
+    if(lang != "en" && lang != "es" && lang != "fr" && lang != "de" && lang != "ca" && lang != "it") {
+        lang = "en"; // Default to English if unsupported language
+    }
+    xhr.open("GET", "translations//"+lang+".json", true);
+    xhr.onload = function() {
+            if (xhr.status === 200) {
+                    const profile = JSON.parse(xhr.responseText);
+                    let greeting = profile.greetings.default; //"Have a nice day, ";
+                    if(hours>=5&&hours<=11){ //morning
+                        greeting = profile.greetings.morning; //"Good Morning, ";
+                    }else if(hours>=12&&hours<=14){ //afternoon
+                        greeting = profile.greetings.evening; //"Good Afternoon, ";
+                    }
+                    else if(hours>=15&&hours<=18){ //evening
+                        greeting = profile.greetings.evening; //"Good Evening, ";
+                    }else { //night
+                        greeting = profile.greetings.night; 
+                    }
+                    document.getElementById("greeting").innerHTML = greeting + name+"!";
+            } else {
+            console.error("Error fetching profile data.");
+        }
+    };
+    xhr.send();
+
+}
 
 setInterval(getClock, 1000);
 getClock();
+
