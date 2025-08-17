@@ -66,6 +66,8 @@ function setGreeting(name,hours,lang) {
                         greeting = profile.greetings.night; 
                     }
                     document.getElementById("greeting").innerHTML = greeting + name+"!";
+                    urlWidget.searchParams.set("name", name);
+                    document.getElementById("urlArea").innerHTML = urlWidget;
             } else {
             console.error("Error fetching profile data.");
         }

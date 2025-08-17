@@ -27,21 +27,6 @@ function setColor(color){
     prueba = document.getElementById("clock").style.backgroundImage;
 }
 
-/*function setGreeting(name,hours){
-    let greeting = "Have a nice day, ";
-    if(hours>=5&&hours<=11){ //morning
-        greeting = getJsonProfile("en", morning); //"Good Morning, ";
-    }else if(hours>=12&&hours<=14){ //afternoon
-        greeting = "Good Afternoon, ";
-    }
-    else if(hours>=15&&hours<=18){ //evening
-        greeting = "Good Evening, ";
-    }else { //night
-        greeting = getJsonProfile("en", "night"); 
-    }
-    document.getElementById("greeting").innerHTML = greeting + name+"!";
-}
-*/
 function setDate(date,format){    
     const now = date;
     let literalDate = "";
