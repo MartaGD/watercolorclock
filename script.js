@@ -25,7 +25,7 @@ function getClock(){
     let format = document.getElementById("formatSelector").value;
     setDate(now,format);
     let name = document.getElementById("labelSelector").value;
-    setGreeting(name,now.getHours(),window.navigator.language);
+    setGreeting(name,now.getHours(),window.navigator.language.substring(0,2));
    
     
 }

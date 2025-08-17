@@ -14,7 +14,7 @@ function getClock(){
     let format = url.searchParams.get("format");
     setDate(now,format);
     let name = url.searchParams.get("name");
-    setGreeting(name,now.getHours(),window.navigator.language);
+    setGreeting(name,now.getHours(),window.navigator.language.substring(0,2));
     
 }
 
